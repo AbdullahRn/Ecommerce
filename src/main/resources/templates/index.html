@@ -56,7 +56,7 @@
                     <!-- Error message -->
 
                     <!-- Login form -->
-                    <form th:action="@{/submit}" method="post" th:object="${member}">
+                    <form th:action="@{/submit}" method="post" th:object="${user}">
 
                         <div th:if="${param.error != null}" class="alert alert-danger">
                             Invalid email or password.

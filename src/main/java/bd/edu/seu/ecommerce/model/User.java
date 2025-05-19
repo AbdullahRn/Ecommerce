@@ -2,6 +2,7 @@
 package bd.edu.seu.ecommerce.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 public class User {
@@ -40,6 +41,6 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = new BCryptPasswordEncoder().encode(password);
     }
 }
