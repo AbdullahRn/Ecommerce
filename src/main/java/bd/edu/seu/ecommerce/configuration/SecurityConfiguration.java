@@ -17,12 +17,12 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(authorizeRequests ->authorizeRequests
                 .requestMatchers("/static/**").permitAll()
-                .requestMatchers("/", "/submit").permitAll()
+                .requestMatchers("/", "/submit", "/login").permitAll()
                 .anyRequest()
                 .authenticated()
         )
                 .formLogin(form-> form
-                        .loginPage("/")
+                        .loginPage("/login")
                         .usernameParameter("email")
                         .passwordParameter("password")
                         .failureUrl("/?error=true")
