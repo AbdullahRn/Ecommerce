@@ -16,8 +16,8 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(authorizeRequests ->authorizeRequests
-                .requestMatchers("/static/**").permitAll()
-                .requestMatchers("/", "/submit", "/login").permitAll()
+                .requestMatchers( "/css/**" , "/img/**", "/js/**" , "/fonts/**", "/screenshot/**").permitAll()
+                .requestMatchers("/", "/submit", "/login", "/", "/dashboard", "/signup", "/register").permitAll()
                 .anyRequest()
                 .authenticated()
         )
@@ -25,12 +25,12 @@ public class SecurityConfiguration {
                         .loginPage("/login")
                         .usernameParameter("email")
                         .passwordParameter("password")
-                        .failureUrl("/?error=true")
-                        .defaultSuccessUrl("/dashboard", true)
+                        .failureUrl("/login?error=true")
+                        .defaultSuccessUrl("/", true)
                 )
                 .logout( config -> config
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
-                        .logoutSuccessUrl("/?logout=true")
+                        .logoutSuccessUrl("/login?logout=true")
                         .invalidateHttpSession(true)
                         .clearAuthentication(true)
                         .deleteCookies("JSESSIONID")

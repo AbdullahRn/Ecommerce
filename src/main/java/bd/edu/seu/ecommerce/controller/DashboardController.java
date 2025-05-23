@@ -12,6 +12,6 @@ public class DashboardController {
 
     @GetMapping("/dashboard")
     public String dashboardRedirect() {
-        return "redirect:/dashboard" ;
+        return "redirect:/" ;
     }
 }

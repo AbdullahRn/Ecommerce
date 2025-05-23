@@ -15,9 +15,9 @@ public class MongoTester {
     @Test
     public void Test(){
         User user = new User();
-        user.setEmail("showmik@gmail.com");
+        user.setEmail("demo123@gmail.com");
         user.setPassword("1234");
-        user.setName("Showmik");
+        user.setName("Demo123");
         userService.save(user);
     }
 }

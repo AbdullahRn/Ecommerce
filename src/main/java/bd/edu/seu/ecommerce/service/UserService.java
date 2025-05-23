@@ -13,6 +13,7 @@ public class UserService {
     }
 
     public void save(User user) {
+        System.out.println("It reached the service");
         userRepository.save(user);
     }
 }

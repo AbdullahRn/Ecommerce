@@ -39,7 +39,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("ROLE_ADMIN")); //user e role na thakay eta hard code kra hoise, pore automate krte hbe
 
-        return new UsernamePasswordAuthenticationToken(email, password, authorities);
+        return new UsernamePasswordAuthenticationToken(email, null, authorities);
 
 
     }
